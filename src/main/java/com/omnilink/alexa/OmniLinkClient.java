@@ -114,6 +114,7 @@ public class OmniLinkClient implements AutoCloseable {
     /**
      * Get current power state of a unit (ON/OFF).
      */
+    @SuppressWarnings("unchecked")
     public UnitControlEnum getUnitState(int unitNumber) throws CommunicationException, Exception {
         UnitStatusReport report = (UnitStatusReport) comm.execute(new UnitStatusRequest(unitNumber));
         List<UnitStatusReport.UnitStatusInfo> list = new ArrayList<>(report.getInfoList());
